@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Alor-Frontend'`, () => {
+  it(`should have as title 'AlorFE'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Alor-Frontend');
+    expect(app.title).toEqual('AlorFE');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Alor-Frontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('AlorFE app is running!');
   });
 });

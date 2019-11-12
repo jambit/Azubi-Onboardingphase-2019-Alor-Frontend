@@ -1,0 +1,17 @@
+.content{
+  padding-top: 100px;
+  width: 90%;
+}
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.radioButton{
+  margin-right: 10px;
+}
+.button{
+  margin-bottom: 10px;
+}
+
