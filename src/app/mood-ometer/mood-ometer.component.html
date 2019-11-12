@@ -1,0 +1,8 @@
+
+<div class="content">
+<mat-radio-group class="radio-group" [(ngModel)]="userChoice">
+<mat-radio-button color="primary" class="radioButton" *ngFor="let possibility of possibilities" [value]="possibility">{{possibility}}</mat-radio-button>
+<button (click)="toto()" mat-raised-button class="button">Send</button>
+</mat-radio-group>
+
+</div>
