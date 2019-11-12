@@ -21,7 +21,7 @@ body {
   top: 0;
   width: 100%;
   height: 100px;
-  background: url(C:\Users\fcelta\WebstormProjects\AlorFE\src\assets\img\what-the-hex.png);
+  background: url(src/assets/img/what-the-hex.png);
 }
 
 #logo {
@@ -31,7 +31,7 @@ body {
   float: left;
 
   margin: 20px;
-  background: url(C:\Users\fcelta\WebstormProjects\AlorFE\src\assets\img\coffeeright250x250.png);
+  background: url(src/assets/img/coffeeright250x250.png);
   background-size: cover;
 }
 
