@@ -1,6 +1,6 @@
 .content{
   padding-top: 100px;
-  width: 90%;
+  width: 100%;
 }
 .radio-group{
   display: flex;
@@ -14,4 +14,9 @@
 .button{
   margin-bottom: 10px;
 }
-
+.moodRadioRow{
+  background-color: #EF7D00;
+}
+.myContainer{
+  padding-top: 100px;
+}

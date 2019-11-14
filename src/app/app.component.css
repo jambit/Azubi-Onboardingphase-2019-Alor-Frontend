@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia;
+}
+.wrapper {
+  width: 90%;
+
+  margin: 0 auto;
+}
+
+.Navigation {
+  background: url(src/assets/img/what-the-hex.png);
+}
+
+#logo {
+  width: 60px;
+  height: 60px;
+
+  float: left;
+
+  margin: 20px;
+  background: url(src/assets/img/coffeeright250x250.png);
+  background-size: cover;
+}
