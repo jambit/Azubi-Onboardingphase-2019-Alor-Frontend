@@ -1,9 +1,13 @@
 <div class="container myContainer">
-    <mat-radio-group class="radio-group" [(ngModel)]="userChoice">
-      <div class="row">
-      <mat-radio-button color="primary" class="radioButton" *ngFor="let possibility of possibilities"
-                        [value]="possibility" (change)="onItemChange(possibility)">{{possibility}}</mat-radio-button>
-      <button mat-raised-button>Send</button>
+  <mat-radio-group class="radio-group" [(ngModel)]="userChoice">
+    <div class="row">
+      <div class="col-11">
+        <mat-radio-button color="primary" class="radioButton" *ngFor="let possibility of possibilities"
+                          [value]="possibility" (change)="onItemChange(possibility)">{{possibility}}</mat-radio-button>
       </div>
-    </mat-radio-group>
+      <div class="col-1 align-content-start">
+        <button mat-raised-button>Send</button>
+      </div>
+    </div>
+  </mat-radio-group>
 </div>
