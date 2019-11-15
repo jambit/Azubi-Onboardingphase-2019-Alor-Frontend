@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoodOMeterComponent implements OnInit {
 userChoice: string;
+radioChoice: string;
 possibilities: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 onItemChange(value) {
+  this.radioChoice = value;
   console.log(' Wert: ', value);
+}
+onSendClick(value) {
+  
 }
   constructor() { }
 

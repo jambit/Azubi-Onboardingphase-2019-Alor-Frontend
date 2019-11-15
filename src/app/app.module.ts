@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatRadioModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MatButtonModule} from '@angular/material/';
     MatRadioModule,
     FormsModule,
     MatButtonModule,
+    HttpClientModule,
 
   ],
   providers: [],
