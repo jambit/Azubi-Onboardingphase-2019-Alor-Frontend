@@ -9,11 +9,16 @@ import {MatRadioModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ChartsModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoodOMeterComponent,
+    PieChartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatButtonModule,
     HttpClientModule,
+    AppRoutingModule,
+    ChartsModule,
 
   ],
   providers: [],

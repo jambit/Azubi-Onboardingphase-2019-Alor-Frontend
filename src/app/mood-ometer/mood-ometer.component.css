@@ -15,12 +15,13 @@
   margin-bottom: 10px;
 }
 .moodRadioRow{
-  background-color: #EF7D00;
+  background-color: #fafafa;
 }
 .myContainer{
-  padding-top: 100px;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 .myCol{
   background-color: aliceblue !important;
