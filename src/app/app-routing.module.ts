@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MoodOMeterComponent} from './mood-ometer/mood-ometer.component';
 
 const routes: Routes = [
-  { path: 'mood', component: MoodOMeterComponent },
+  { path: 'moodometer', component: MoodOMeterComponent },
   { path: '', redirectTo: '/mood', pathMatch: 'full' },
 ];
 

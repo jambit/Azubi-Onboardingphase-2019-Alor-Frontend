@@ -11,7 +11,7 @@ export class PieChartComponent {
   }
 
   public chartType = 'pie';
-  url = 'http://10.3.4.114:4200/Gradle___Alor_Backend_war/rest/mdm/dist';
+  urlMoodDistGet = 'http://10.3.4.114:4200/Gradle___Alor_Backend_war/rest/mdm/dist';
   data;
 
   public chartDatasets: Array<any> = [
@@ -39,7 +39,7 @@ export class PieChartComponent {
   }
 
   reload() {
-    this.data = this.http.get(this.url);
+    this.data = this.http.get(this.urlMoodDistGet);
     console.log(this.data);
   }
 }
