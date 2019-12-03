@@ -4,7 +4,7 @@ import {MoodOMeterComponent} from './mood-ometer/mood-ometer.component';
 
 const routes: Routes = [
   { path: 'moodometer', component: MoodOMeterComponent },
-  { path: '', redirectTo: '/mood', pathMatch: 'full' },
+  { path: '', redirectTo: '/moodometer', pathMatch: 'full' },
 ];
 
 @NgModule({

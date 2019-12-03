@@ -1,18 +1,25 @@
 <div class="container-fluid myContainer">
-    <div class="row">
-      <mat-radio-group class="radio-group" [(ngModel)]="userChoice">
-        <div class="col-11" align="center">
-          <mat-radio-button color="primary" class="radioButton" *ngFor="let possibility of possibilities"
-                            [value]="possibility"
-                            (change)="onItemChange(possibility)">{{possibility}}</mat-radio-button>
-        </div>
-        <div class="col-1" align="right">
-          <button mat-raised-button (click)="postMoodSelection()">Send</button>
-        </div>
-      </mat-radio-group>
-      <div class="col-6">
-        <app-pie-chart align="right"></app-pie-chart>
+  <div class="row">
+    <mat-radio-group class="radio-group" [(ngModel)]="userChoice">
+      <div class="col-xl-11 col-xs-11">
+        <mat-radio-button class="radioButton" *ngFor="let possibility of possibilities"
+                          [value]="possibility"
+                          (change)="onItemChange(possibility)">{{possibility}}</mat-radio-button>
+      </div>
+      <div class="col-xl-1 col-xs-1">
+        <button mat-raised-button (click)="postMoodSelection()">Send</button>
+      </div>
+    </mat-radio-group>
+      <div class="col-xl-4 col-xs-12">
+<p align="center">Verteilung:</p>
+        <app-pie-chart></app-pie-chart>
+      </div>
+      <div class="col-xl-2 col-xs-12">
+        <p align="center">Durchschnitt:</p>
+        <app-bar-chart></app-bar-chart>
+        <app-refresh-button-charts></app-refresh-button-charts>
       </div>
     </div>
 </div>
+
 

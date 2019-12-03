@@ -1,4 +1,4 @@
-<div style="display: block">
+<div class="chart">
   <canvas mdbChart height="100"
           [chartType]="chartType"
           [datasets]="chartDatasets"
@@ -9,5 +9,5 @@
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
   </canvas>
+  <button mat-raised-button (click)="setMoodAvg()">Refresh</button>
 </div>
-

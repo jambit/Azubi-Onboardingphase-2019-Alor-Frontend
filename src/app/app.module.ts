@@ -12,13 +12,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ChartsModule } from 'angular-bootstrap-md';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { RefreshButtonChartsComponent } from './refresh-button-charts/refresh-button-charts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoodOMeterComponent,
     PieChartComponent,
-
+    BarChartComponent,
+    RefreshButtonChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ChartsModule } from 'angular-bootstrap-md';
     ChartsModule,
 
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,7 +29,14 @@ export class PieChartComponent {
   ];
 
   public chartOptions: any = {
-    responsive: true
+    responsive: true,
+    legend: {
+      position: 'bottom',
+      display: true,
+    },
+    tooltips: {
+      enabled: false
+    }
   };
 
   public chartClicked(e: any): void {
