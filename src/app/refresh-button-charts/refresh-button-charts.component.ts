@@ -11,18 +11,36 @@ export class RefreshButtonChartsComponent implements OnInit {
   constructor(private http: HttpClient, private dataservice: DataSetService) { }
   @Output() dataSetToEmit = new EventEmitter();
   //Will be replaced as soon as rasperry backend is available
-  urlMoodAvgGet = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg';
+  urlMoodAvgGet4H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?=4';
+  urlMoodAvgGet24H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?=24';
+  urlMoodAvgGet48H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?=48';
   avgMoodData;
 
   ngOnInit() {
-    this.getMoodAvg();
+    this.getMoodAvg('4h');
     console.dir(this.avgMoodData);
   }
-  getMoodAvg() {
-    return this.http.get(this.urlMoodAvgGet).subscribe(response => this.avgMoodData = response);
+  getMoodAvg(h: String) {
+    if(h == '4h') {
+      return this.http.get(this.urlMoodAvgGet4H).subscribe(response => this.avgMoodData = response);
+    }
+    else if (h == '24h'){
+      return this.http.get(this.urlMoodAvgGet24H).subscribe(response => this.avgMoodData = response);
+    }
+    else if (h == '48'){
+      return this.http.get(this.urlMoodAvgGet48H).subscribe(response => this.avgMoodData = response);
+    }
   }
-  setMoodAvg() {
-    this.getMoodAvg();
+  setMoodAvg(h: String) {
+    if (h == '4h') {
+      this.getMoodAvg('4h');
+    }
+    else if (h == '24h'){
+      this.getMoodAvg('24h')
+    }
+    else if (h == '48h'){
+      this.getMoodAvg('48h')
+    }
     console.log(this.avgMoodData);
     this.dataservice.sendMessage(this.avgMoodData);
   }
