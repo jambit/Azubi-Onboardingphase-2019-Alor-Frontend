@@ -15,6 +15,10 @@ import { ChartsModule } from 'angular-bootstrap-md';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { RefreshButtonChartsComponent } from './refresh-button-charts/refresh-button-charts.component';
+import { ArrivalTableComponent } from './arrival-table/arrival-table.component';
+import { ArrivalTableUserInputComponent } from './arrival-table-user-input/arrival-table-user-input.component';
+import {MatTableModule} from "@angular/material/table";
+import { WavesModule, TableModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { RefreshButtonChartsComponent } from './refresh-button-charts/refresh-bu
     PieChartComponent,
     BarChartComponent,
     RefreshButtonChartsComponent,
+    ArrivalTableComponent,
+    ArrivalTableUserInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,9 @@ import { RefreshButtonChartsComponent } from './refresh-button-charts/refresh-bu
     HttpClientModule,
     AppRoutingModule,
     ChartsModule,
+    MatTableModule,
+    WavesModule,
+    TableModule,
 
   ],
   providers: [

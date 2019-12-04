@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, IterableDiffers, OnInit} from '@angular/core';
+import {DataSetService} from "../data-set.service";
 
 @Component({
   selector: 'app-pie-chart',
@@ -7,15 +7,16 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./pie-chart.component.css']
 })
 export class PieChartComponent {
-  constructor(private http: HttpClient) {
+  differ: any;
+  constructor(private dataservice: DataSetService, differs: IterableDiffers) {
+    this.differ = differs.find([]).create(null);
   }
 
   public chartType = 'pie';
-  urlMoodDistGet = 'http://10.3.4.114:4200/Gradle___Alor_Backend_war/rest/mdm/dist';
   data;
 
   public chartDatasets: Array<any> = [
-    {data: [300, 50, 100, 40, 120, 50, 200, 40, 10, 45], label: 'Votes'}
+    {data: [], label: 'Votes'}
   ];
 
   public chartLabels: Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
@@ -44,9 +45,12 @@ export class PieChartComponent {
 
   public chartHovered(e: any): void {
   }
-
-  reload() {
-    this.data = this.http.get(this.urlMoodDistGet);
-    console.log(this.data);
+  ngDoCheck() {
+    const change = this.differ.diff(this.dataservice.accessDistMoodData());
+    console.log(change);
+    this.chartDatasets = this.dataservice.accessDistMoodData();
+    // here you can do what you want on array change
+    // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
+    // Attention: ngDoCheck() is triggered at each binded variable on componenet; if you have more than one in your component, make sure you filter here the one you want.
   }
 }

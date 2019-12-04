@@ -1,6 +1,4 @@
 import {Component, Input, IterableDiffers, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {DataSetService} from '../data-set.service';
 
 @Component({
@@ -12,7 +10,7 @@ export class BarChartComponent implements OnInit {
   @Input() receivedDataSet;
   avgMoodData;
   differ: any;
-  constructor(private http: HttpClient, private dataservice: DataSetService, differs: IterableDiffers) {
+  constructor(private dataservice: DataSetService, differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
   }
 
@@ -65,18 +63,12 @@ export class BarChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.chartDatasets = [this.dataservice.accessMessage()];
-  }
-
-
-  printShit() {
-    console.log(this.dataservice.accessMessage());
-    this.chartDatasets = [this.dataservice.accessMessage()];
+    this.chartDatasets = [this.dataservice.accessAvgMoodData()];
   }
   ngDoCheck() {
-    const change = this.differ.diff(this.dataservice.accessMessage());
+    const change = this.differ.diff(this.dataservice.accessAvgMoodData());
     console.log(change);
-    this.chartDatasets = this.dataservice.accessMessage();
+    this.chartDatasets = this.dataservice.accessAvgMoodData();
     // here you can do what you want on array change
     // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
     // Attention: ngDoCheck() is triggered at each binded variable on componenet; if you have more than one in your component, make sure you filter here the one you want.

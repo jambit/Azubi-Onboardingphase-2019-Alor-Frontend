@@ -1,21 +1,32 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataSetService {
-  private subject = new Subject();
-  private nut;
+  private avgMoodData;
+  private distMoodData;
 
   constructor() {
   }
 
-  sendMessage(msg) {
-    this.nut = msg;
+  sendAvgMoodData(msg) {
+    this.avgMoodData = msg;
   }
 
-  accessMessage() {
-    return [this.nut];
+  accessAvgMoodData() {
+    if (this.avgMoodData != null) {
+      return [this.avgMoodData];
+    }
+  }
+
+  sendDistMoodData(msg) {
+    this.distMoodData = msg;
+  }
+
+  accessDistMoodData() {
+    if (this.distMoodData != null) {
+      return [this.distMoodData]
+    }
   }
 }
