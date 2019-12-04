@@ -1,18 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, IterableDiffers, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {DataSetService} from '../data-set.service';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  styleUrls: ['./bar-chart.component.css'],
 })
 export class BarChartComponent implements OnInit {
-  urlMoodAvgGet = 'http://www.mocky.io/v2/5de5081a2e00004c0031fad0';
+  @Input() receivedDataSet;
   avgMoodData;
-
-  constructor(private http: HttpClient) {
+  differ: any;
+  constructor(private http: HttpClient, private dataservice: DataSetService, differs: IterableDiffers) {
+    this.differ = differs.find([]).create(null);
   }
+
 
   public chartType = 'bar';
 
@@ -62,18 +65,20 @@ export class BarChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMoodAvg();
-    console.dir(this.avgMoodData);
-    this.chartDatasets = [this.avgMoodData];
+    this.chartDatasets = [this.dataservice.accessMessage()];
   }
 
-  getMoodAvg() {
-    return this.http.get(this.urlMoodAvgGet).subscribe(response => this.avgMoodData = response);
-  }
 
-  setMoodAvg() {
-    this.getMoodAvg();
-    console.log(this.avgMoodData);
-    this.chartDatasets = [this.avgMoodData];
+  printShit() {
+    console.log(this.dataservice.accessMessage());
+    this.chartDatasets = [this.dataservice.accessMessage()];
+  }
+  ngDoCheck() {
+    const change = this.differ.diff(this.dataservice.accessMessage());
+    console.log(change);
+    this.chartDatasets = this.dataservice.accessMessage();
+    // here you can do what you want on array change
+    // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
+    // Attention: ngDoCheck() is triggered at each binded variable on componenet; if you have more than one in your component, make sure you filter here the one you want.
   }
 }
