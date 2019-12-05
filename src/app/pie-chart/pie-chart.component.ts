@@ -8,6 +8,7 @@ import {DataSetService} from "../data-set.service";
 })
 export class PieChartComponent implements OnInit{
   differ: any;
+  test = [10, 30, 30, 11, 0, 0, 0, 0, 0, 0];
   constructor(private dataservice: DataSetService, differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
   }

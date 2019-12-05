@@ -10,13 +10,14 @@ import {DataSetService} from '../data-set.service';
 export class RefreshButtonChartsComponent implements OnInit {
   constructor(private http: HttpClient, private dataservice: DataSetService) {
   }
+  hasRun;
 
   @Output() dataSetToEmit = new EventEmitter();
   //Will be replaced as soon as rasperry backend is available
-  urlMoodAvgGet4H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?t=4';
-  urlMoodAvgGet24H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?t=24';
+  urlMoodAvgGet4H = 'http://www.mocky.io/v2/5de947e63100004ab56b1829';
+  urlMoodAvgGet24H = 'http://www.mocky.io/v2/5de948073100004ab56b182a';
   urlMoodAvgGet48H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?t=48';
-  urlMoodDistGet4H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/distro?t=4';
+  urlMoodDistGet4H = 'http://www.mocky.io/v2/5de94376310000079e6b1809';
   urlMoodDistGet24H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/distro?t=24';
   urlMoodDistGet48H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/distro?t=48';
   avgMoodData;
@@ -24,6 +25,11 @@ export class RefreshButtonChartsComponent implements OnInit {
 
   ngOnInit() {
     this.getMoodAvg('4h');
+    this.getMoodDist('4h');
+    this.getMoodAvg('24h');
+    this.getMoodDist('24h');
+    this.getMoodAvg('48h');
+    this.getMoodDist('48h');
     console.dir(this.avgMoodData);
   }
 
@@ -47,6 +53,19 @@ export class RefreshButtonChartsComponent implements OnInit {
     }
   }
 
+  triggerSet(h) {
+    this.hasRun = false;
+    if (h == '4h'){
+      this.setMood(h);
+    }
+    if (h == '24h'){
+      this.setMood(h);
+    }
+    if (h == '48h'){
+      this.setMood(h);
+    }
+  }
+
   setMood(h) {
     if (h == '4h') {
       this.getMoodAvg('4h');
@@ -61,8 +80,10 @@ export class RefreshButtonChartsComponent implements OnInit {
     console.log(this.avgMoodData);
     this.dataservice.sendAvgMoodData(this.avgMoodData);
     this.dataservice.sendDistMoodData(this.distMoodData);
+    if (this.hasRun == false) {
+      this.hasRun = true;
+      this.setMood(h);
+    }
   }
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
+
 }
