@@ -17,6 +17,9 @@ arrivalTableData;
   }
   elements: any = [
     {id: 1, name: 'Finn', time: '7:45'},
+    {id: 1, name: 'Finn', time: '7:45'},
+    {id: 1, name: 'Finn', time: '7:45'},
+    {id: 1, name: 'Finn', time: '7:45'},
   ];
 
   headElements = ['#', 'Name', 'Zeit'];

@@ -6,7 +6,7 @@ import {DataSetService} from "../data-set.service";
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })
-export class PieChartComponent {
+export class PieChartComponent implements OnInit{
   differ: any;
   constructor(private dataservice: DataSetService, differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
@@ -45,12 +45,19 @@ export class PieChartComponent {
 
   public chartHovered(e: any): void {
   }
-  ngDoCheck() {
-    const change = this.differ.diff(this.dataservice.accessDistMoodData());
-    console.log(change);
-    this.chartDatasets = this.dataservice.accessDistMoodData();
-    // here you can do what you want on array change
-    // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
-    // Attention: ngDoCheck() is triggered at each binded variable on componenet; if you have more than one in your component, make sure you filter here the one you want.
+ ngDoCheck() {
+    try {
+      const change = this.differ.diff(this.dataservice.accessDistMoodData());
+      this.chartDatasets = [{data: this.dataservice.accessDistMoodData()}]
+      // here you can do what you want on array change
+      // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
+      // Attention: ngDoCheck() is triggered at each binded variable on componenet; if you have more than one in your component, make sure you filter here the one you want.
+    }
+    catch (e) {
+
+    }
+  }
+
+  ngOnInit(): void {
   }
 }

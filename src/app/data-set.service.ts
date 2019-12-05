@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {BarChartComponent} from './bar-chart/bar-chart.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,7 @@ export class DataSetService {
   }
 
   accessAvgMoodData() {
-    if (this.avgMoodData != null) {
       return [this.avgMoodData];
-    }
   }
 
   sendDistMoodData(msg) {
@@ -25,8 +24,6 @@ export class DataSetService {
   }
 
   accessDistMoodData() {
-    if (this.distMoodData != null) {
-      return [this.distMoodData]
-    }
+      return this.distMoodData;
   }
 }
