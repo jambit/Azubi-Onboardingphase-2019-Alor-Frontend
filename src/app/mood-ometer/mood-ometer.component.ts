@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoodOMeterComponent implements OnInit {
   constructor(private http: HttpClient) {}
-urlMoodSelectPost = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/create';
+urlMoodSelectPost = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/create';
 moodSelection: string;
 possibilities: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 onItemChange(value) {

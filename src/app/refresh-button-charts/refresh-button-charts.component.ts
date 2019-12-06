@@ -14,12 +14,12 @@ export class RefreshButtonChartsComponent implements OnInit {
 
   @Output() dataSetToEmit = new EventEmitter();
   //Will be replaced as soon as rasperry backend is available
-  urlMoodAvgGet4H = 'http://www.mocky.io/v2/5de947e63100004ab56b1829';
-  urlMoodAvgGet24H = 'http://www.mocky.io/v2/5de948073100004ab56b182a';
-  urlMoodAvgGet48H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/avg?t=48';
-  urlMoodDistGet4H = 'http://www.mocky.io/v2/5de94376310000079e6b1809';
-  urlMoodDistGet24H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/distro?t=24';
-  urlMoodDistGet48H = 'http://10.0.0.150:4200/alorwebapp/rest/MoodMeter/distro?t=48';
+  urlMoodAvgGet4H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/avg?t=4';
+  urlMoodAvgGet24H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/avg?t=24';
+  urlMoodAvgGet48H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/avg?t=48';
+  urlMoodDistGet4H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/distro?t=4';
+  urlMoodDistGet24H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/distro?t=24';
+  urlMoodDistGet48H = 'http://10.0.0.154:8080/alorwebapp/rest/MoodMeter/distro?t=48';
   avgMoodData;
   distMoodData;
 
