@@ -1,0 +1,14 @@
+<table mdbTable striped="true" bordered="true" class="yee">
+  <thead>
+  <tr>
+    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let el of elements">
+    <th scope="row">{{el.id}}</th>
+    <td>{{el.name}}</td>
+    <td>{{el.time}}</td>
+  </tr>
+  </tbody>
+</table>

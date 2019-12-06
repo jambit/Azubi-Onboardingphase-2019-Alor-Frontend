@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MoodOMeterService } from './mood-ometer.service';
+import { DataSetService } from './data-set.service';
 
-describe('MoodOMeterService', () => {
+describe('DataSetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MoodOMeterService = TestBed.get(MoodOMeterService);
+    const service: DataSetService = TestBed.get(DataSetService);
     expect(service).toBeTruthy();
   });
 });

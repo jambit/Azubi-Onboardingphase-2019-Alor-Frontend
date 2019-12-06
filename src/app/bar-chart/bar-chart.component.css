@@ -1,0 +1,8 @@
+.wrapper{
+  height: 500px !important;
+}
+.chart{
+  display: block;
+  height: 100% !important;
+  x-width: 120px !important;
+}
